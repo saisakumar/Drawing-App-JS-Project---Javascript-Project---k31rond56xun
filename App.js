@@ -1,3 +1,5 @@
+getAdvice();
+
  const canvas = document.querySelector("canvas");
  canvas.width=window.innerWidth-60;
  canvas.height=400;
@@ -51,13 +53,13 @@ function stop(event){
         is_drawing=false;
     }
     event.preventDefault();
-}
+
 
 if(event.type != 'mouseout'){
  restore_array.push(context.getImageData(0,0, canvas.width, canvas.height));
  index += 1;
 }
-
+}
 function change_color(element){
      draw_color = element.style.background
 }
