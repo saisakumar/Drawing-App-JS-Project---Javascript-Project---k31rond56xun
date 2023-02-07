@@ -1,1 +1,54 @@
+body{
+padding: 30px;
+background-color: #313131;
 
+}
+
+.tools .colorfd{
+    height: 40px;
+    width: 40px;
+    min-height: 40px;
+    min-width: 40px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid white;
+    align-self: center;
+    margin: 0 10px;
+}
+.tools{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.tools .button{
+    height: 40px;
+    width: 80px;
+    align-self: center;
+    border: 2px solid white;
+    color:white;
+    cursor: pointer;
+    background: blueviolet;
+    margin: 0 10px;
+}
+.color-picker{
+    height: 40px;
+    width: 80px;
+    align-self: center;
+    border: 2px solid white;
+    cursor: pointer;
+    margin: 0 10px;
+
+}
+color-range{
+    align-self: center;
+    margin: 0 10px;
+}
+
+.canvas{
+    box-shadow: -3px 2px 9px 6px lightblue;
+    cursor: pointer;
+   }
