@@ -52,3 +52,16 @@ color-range{
     box-shadow: -3px 2px 9px 6px lightblue;
     cursor: pointer;
    }
+
+   .advice-slip {
+    background: white;
+    width: 50%;
+    height: 2%;
+    margin: auto;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 0.25em;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
