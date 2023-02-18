@@ -1,19 +1,17 @@
-getAdvice();
-
  const canvas = document.querySelector("canvas");
- canvas.width=window.innerWidth-60;
+ canvas.width=window.innerWidth-70;
  canvas.height=400;
  
 let context = canvas.getContext("2d");
-let start_background_color="white";
-context.fillStyle= start_background_color;
+let StartBackgroundcolor="white";
+context.fillStyle= StartBackgroundcolor;
 context.fillRect(0,0, canvas.width, canvas.height);
 
-let draw_color="black";
-let draw_width="2";
-let is_drawing="false";
+let DrawColor="black";
+let DrawWidth="2";
+let IsDrawing="false";
 
-let restore_array=[];
+let restorearray=[];
 let index = -1;
 
 canvas.addEventListener("touchstart",start,false);
@@ -26,7 +24,7 @@ canvas.addEventListener("mouseup",stop,false);
 canvas.addEventListener("mouseout",stop,false);
 
 function start(event){
-    is_drawing=true;
+    IsDrawing=true;
     context.beginPath();
     context.moveTo(event.clientX-canvas.offsetLeft,
                     event.clientY-canvas.offsetTop);
@@ -34,11 +32,11 @@ function start(event){
 }
 
 function draw(event){
-    if (is_drawing) {
+    if (IsDrawing) {
     context.lineTo(event.clientX-canvas.offsetLeft,
                    event.clientY-canvas.offsetTop);
-   context.strokeStyle = draw_color;
-   context.lineWidth= draw_width;
+   context.strokeStyle = DrawColor;
+   context.lineWidth= DrawWidth;
    context.lineCap="round";
    context.lineJoin="round";
    context.stroke();
@@ -47,41 +45,41 @@ function draw(event){
 }
 
 function stop(event){
-    if (is_drawing){
+    if (IsDrawing){
         context.stroke();
         context.closePath();
-        is_drawing=false;
+        IsDrawing=false;
     }
     event.preventDefault();
 
 
 if(event.type != 'mouseout'){
- restore_array.push(context.getImageData(0,0, canvas.width, canvas.height));
+ restorearray.push(context.getImageData(0,0, canvas.width, canvas.height));
  index += 1;
 }
 }
-function change_color(element){
-     draw_color = element.style.background
+function Changecolor(element){
+     DrawColor = element.style.background
 }
 
 
-function clear_canvas(){
-    context.fillStyle= start_background_color;
+function Clearcanvas(){
+    context.fillStyle= StartBackgroundcolor;
 context.fillRect(0,0, canvas.width, canvas.height);
 context.ClearRect(0,0, canvas.width, canvas.height);
 
-restore_array=[];
+restorearray=[];
 index=-1;
 }
 
 
-function undo_last(){
+function Undolast(){
     if(index <= 0){
-        clear_canvas();
+        Clearcanvas();
     }else{
         index -= 1;
-        restore_array.pop();
-        context.putImageData(restore_array[index],0,0) 
+        restorearray.pop();
+        context.putImageData(restorearray[index],0,0) 
     }
 }
 
