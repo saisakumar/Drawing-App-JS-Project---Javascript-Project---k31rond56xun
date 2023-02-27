@@ -51,8 +51,6 @@ function stop(event){
         IsDrawing=false;
     }
     event.preventDefault();
-
-
 if(event.type != 'mouseout'){
  restorearray.push(context.getImageData(0,0, canvas.width, canvas.height));
  index += 1;
