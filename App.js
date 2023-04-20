@@ -1,5 +1,19 @@
+const adviceArea = document.querySelector(".advice-slip");
+
+function getAdvice() {
+  fetch("https://api.adviceslip.com/advice")
+    .then((res) => res.json())
+    .then(
+      (data) =>
+        (adviceArea.innerHTML = `<h2 class="advice">${data.slip.advice}</h2>`)
+    );
+}
+
+getAdvice(); 
+ 
+ 
  const canvas = document.querySelector("canvas");
- canvas.width=window.innerWidth-70;
+ canvas.width=920;
  canvas.height=400;
  
 let context = canvas.getContext("2d");
@@ -14,14 +28,14 @@ let IsDrawing="false";
 let restorearray=[];
 let index = -1;
 
-canvas.addEventListener("touchstart",start,false);
-canvas.addEventListener("toucmove",draw,false);
-canvas.addEventListener("mousedown",start,false);
-canvas.addEventListener("mousemove",draw,false);
+canvas.addEventListener("touchstart",start);
+canvas.addEventListener("toucmove",draw);
+canvas.addEventListener("mousedown",start);
+canvas.addEventListener("mousemove",draw);
 
-canvas.addEventListener("touchend",stop,false);
-canvas.addEventListener("mouseup",stop,false);
-canvas.addEventListener("mouseout",stop,false);
+canvas.addEventListener("touchend",stop);
+canvas.addEventListener("mouseup",stop);
+canvas.addEventListener("mouseout",stop);
 
 function start(event){
     IsDrawing=true;
@@ -71,25 +85,18 @@ index=-1;
 }
 
 
-function Undolast(){
+ function Undolast(){
+   
     if(index <= 0){
         Clearcanvas();
     }else{
         index -= 1;
         restorearray.pop();
-        context.putImageData(restorearray[index],0,0) 
+        context.putImageData(restorearray[index],0,0);
+        
     }
+    
+    
 }
 
-const adviceArea = document.querySelector(".advice-slip");
 
-function getAdvice() {
-  fetch("https://api.adviceslip.com/advice")
-    .then((res) => res.json())
-    .then(
-      (data) =>
-        (adviceArea.innerHTML = `<span class="id">${data.slip.id}.</span><h2 class="advice">${data.slip.advice}</h2>`)
-    );
-}
-
-getAdvice();
