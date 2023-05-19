@@ -25,6 +25,11 @@ background-color: #f8b2f3;
     justify-content: space-around;
     flex-direction: column;
     margin-top: 28px;
+    margin-left: 22px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: azure;
+    border: 2px solid black;
 }
 .colorfd:hover{
     border: 2px solid black;
@@ -39,6 +44,7 @@ background-color: #f8b2f3;
     cursor: pointer;
     background: blueviolet;
     margin: 0 ;
+    padding: 2px;
     
 }
 .button{
@@ -70,7 +76,7 @@ pen-range:hover{
     box-shadow: -3px 2px 5px 6px rgb(25, 178, 229);
     cursor: pointer;
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 38px;
    }
 
    .advice-slip {
